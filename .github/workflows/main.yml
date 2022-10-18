@@ -7,6 +7,14 @@ jobs:
   Build:
     runs-on: ubuntu-20.04
     services:
+      mongoDb:
+        image: bitnami/mongodb:4.2.16
+        ports:
+          - 27017:27017
+        env:
+          MONGODB_DATABASE: test
+          MONGODB_USERNAME: postgres
+          MONGODB_PASSWORD: postgres
       postgres:
         image: postgres:13.4
         env:
